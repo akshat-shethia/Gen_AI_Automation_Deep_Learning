@@ -1,0 +1,13 @@
+prefix=C:/miniconda/Gen_AI_Automation_Deep_Learning/Automate_Everything_With_Python/jupyter/Library
+exec_prefix=C:/miniconda/Gen_AI_Automation_Deep_Learning/Automate_Everything_With_Python/jupyter/Library
+libdir=C:/miniconda/Gen_AI_Automation_Deep_Learning/Automate_Everything_With_Python/jupyter/Library/lib
+sharedlibdir=C:/miniconda/Gen_AI_Automation_Deep_Learning/Automate_Everything_With_Python/jupyter/Library/lib
+includedir=C:/miniconda/Gen_AI_Automation_Deep_Learning/Automate_Everything_With_Python/jupyter/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
