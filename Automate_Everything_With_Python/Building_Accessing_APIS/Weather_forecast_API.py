@@ -1,6 +1,6 @@
 import requests
 
-api_key = "a74fca7b6fa39dfecbb224daf5369b6d"
+api_key = "YOUR_API_KEY_HERE"
 
 
 def make_request(city_name):
