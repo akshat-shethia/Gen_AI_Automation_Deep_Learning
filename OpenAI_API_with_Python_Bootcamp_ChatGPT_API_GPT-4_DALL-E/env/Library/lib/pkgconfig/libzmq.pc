@@ -1,0 +1,12 @@
+prefix=C:/miniconda/Gen_AI_Automation_Deep_Learning/OpenAI_API_with_Python_Bootcamp_ChatGPT_API_GPT-4_DALL-E/env/Library
+exec_prefix=C:/miniconda/Gen_AI_Automation_Deep_Learning/OpenAI_API_with_Python_Bootcamp_ChatGPT_API_GPT-4_DALL-E/env/Library
+libdir=C:/miniconda/Gen_AI_Automation_Deep_Learning/OpenAI_API_with_Python_Bootcamp_ChatGPT_API_GPT-4_DALL-E/env/Library/lib
+includedir=C:/miniconda/Gen_AI_Automation_Deep_Learning/OpenAI_API_with_Python_Bootcamp_ChatGPT_API_GPT-4_DALL-E/env/Library/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.3.5
+Libs: -L${libdir} -lzmq
+Libs.private: -lstdc++ 
+Requires.private: 
+Cflags: -I${includedir} 
