@@ -1,0 +1,8 @@
+create WAREHOUSE COMPUTE_WAREHOUSE
+with
+WAREHOUSE_SIZE = XSMALL
+MAX_CLUSTER_COUNT = 3
+AUTO_SUSPEND = 300
+AUTO_RESUME = TRUE
+comment = "This is our second warehouse"
+
