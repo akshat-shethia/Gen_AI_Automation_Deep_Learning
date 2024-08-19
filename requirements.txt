@@ -1,0 +1,14 @@
+pandas
+numpy
+seaborn
+matplotlib
+ipykernel
+ydata-profiling
+tensorflow
+keras
+sqlalchemy
+scikit-learn
+transformers
+nltk
+opencv-python
+plotly
