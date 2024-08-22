@@ -22,3 +22,4 @@ pipeline
 scikit-learn
 torch
 pillow
+opencv-python
