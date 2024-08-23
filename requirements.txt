@@ -23,3 +23,4 @@ scikit-learn
 torch
 pillow
 opencv-python
+diffusers

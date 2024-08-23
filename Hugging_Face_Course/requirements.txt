@@ -1,0 +1,11 @@
+transformers
+ipykernel
+huggingface_hub
+ipywidgets
+datasets
+pipeline
+scikit-learn
+torch
+pillow
+opencv-python
+diffusers
