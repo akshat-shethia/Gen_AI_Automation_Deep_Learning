@@ -9,3 +9,4 @@ torch
 pillow
 opencv-python
 diffusers
+librosa
