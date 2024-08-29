@@ -7,7 +7,7 @@ credentials:
     jsmith: 
       email: jsmith@gmail.com
       name: Jane Smith
-      passsword: $2b$12$NKNwNMANtBgr2qD8qDrGJeKRAK6JzyCem1HWWX1tjouLbxKZMoVB6
+      password: $2b$12$NKNwNMANtBgr2qD8qDrGJeKRAK6JzyCem1HWWX1tjouLbxKZMoVB6
     mpolo:
       email: mpolo@gmail.com
       name: marcopolo
