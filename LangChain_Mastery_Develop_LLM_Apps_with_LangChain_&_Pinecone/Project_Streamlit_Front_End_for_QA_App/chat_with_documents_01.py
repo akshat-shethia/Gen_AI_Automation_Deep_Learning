@@ -4,6 +4,8 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 
 # loading PDF, DOCX and TXT files as LangChain Documents
+
+
 def load_document(file):
     import os
     name, extension = os.path.splitext(file)
@@ -30,14 +32,16 @@ def load_document(file):
 # splitting data in chunks
 def chunk_data(data, chunk_size=256, chunk_overlap=20):
     from langchain.text_splitter import RecursiveCharacterTextSplitter
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     chunks = text_splitter.split_documents(data)
     return chunks
 
 
 # create embeddings using OpenAIEmbeddings() and save them in a Chroma vector store
 def create_embeddings(chunks):
-    embeddings = OpenAIEmbeddings(model='text-embedding-3-small', dimensions=1536)  # 512 works as well
+    embeddings = OpenAIEmbeddings(
+        model='text-embedding-3-small', dimensions=1536)  # 512 works as well
     vector_store = Chroma.from_documents(chunks, embeddings)
     return vector_store
 
@@ -47,8 +51,10 @@ def ask_and_get_answer(vector_store, q, k=3):
     from langchain_openai import ChatOpenAI
 
     llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=1)
-    retriever = vector_store.as_retriever(search_type='similarity', search_kwargs={'k': k})
-    chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever)
+    retriever = vector_store.as_retriever(
+        search_type='similarity', search_kwargs={'k': k})
+    chain = RetrievalQA.from_chain_type(
+        llm=llm, chain_type="stuff", retriever=retriever)
 
     answer = chain.invoke(q)
     return answer['result']
@@ -87,18 +93,21 @@ if __name__ == "__main__":
             os.environ['OPENAI_API_KEY'] = api_key
 
         # file uploader widget
-        uploaded_file = st.file_uploader('Upload a file:', type=['pdf', 'docx', 'txt'])
+        uploaded_file = st.file_uploader(
+            'Upload a file:', type=['pdf', 'docx', 'txt'])
 
         # chunk size number widget
-        chunk_size = st.number_input('Chunk size:', min_value=100, max_value=2048, value=512, on_change=clear_history)
+        chunk_size = st.number_input(
+            'Chunk size:', min_value=100, max_value=2048, value=512, on_change=clear_history)
 
         # k number input widget
-        k = st.number_input('k', min_value=1, max_value=20, value=3, on_change=clear_history)
+        k = st.number_input('k', min_value=1, max_value=20,
+                            value=3, on_change=clear_history)
 
         # add data button widget
         add_data = st.button('Add Data', on_click=clear_history)
 
-        if uploaded_file and add_data: # if the user browsed a file
+        if uploaded_file and add_data:  # if the user browsed a file
             with st.spinner('Reading, chunking and embedding file ...'):
 
                 # writing the file from RAM to the current directory on disk
@@ -123,11 +132,12 @@ if __name__ == "__main__":
 
     # user's question text input widget
     q = st.text_input('Ask a question about the content of your file:')
-    if q: # if the user entered a question and hit enter
+    if q:  # if the user entered a question and hit enter
         standard_answer = "Answer only based on the text you received as input. Don't search external sources. " \
                           "If you can't answer then return `I DONT KNOW`."
         q = f"{q} {standard_answer}"
-        if 'vs' in st.session_state: # if there's the vector store (user uploaded, split and embedded a file)
+        # if there's the vector store (user uploaded, split and embedded a file)
+        if 'vs' in st.session_state:
             vector_store = st.session_state.vs
             st.write(f'k: {k}')
             answer = ask_and_get_answer(vector_store, q, k)
@@ -144,11 +154,12 @@ if __name__ == "__main__":
             # the current question and answer
             value = f'Q: {q} \nA: {answer}'
 
-            st.session_state.history = f'{value} \n {"-" * 100} \n {st.session_state.history}'
+            st.session_state.history = f'{value} \n {
+                "-" * 100} \n {st.session_state.history}'
             h = st.session_state.history
 
             # text area widget for the chat history
-            st.text_area(label='Chat History', value=h, key='history', height=400)
+            st.text_area(label='Chat History', value=h,
+                         key='history', height=400)
 
 # run the app: streamlit run ./chat_with_documents.py
-
