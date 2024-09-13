@@ -1,7 +1,6 @@
 from crewai import Agent
 from tools import tool
 
-
 # Creating a senior researcher agent with memory and verbose mode
 researcher = Agent(
   role='Blogs Creator from Youtube Videos',
