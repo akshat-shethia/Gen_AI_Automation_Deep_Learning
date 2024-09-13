@@ -20,7 +20,6 @@ def input_pdf_setup(uploaded_file):
     if uploaded_file is not None:
         ## Convert the PDF to image
         images=pdf2image.convert_from_bytes(uploaded_file.read())
-
         first_page=images[0]
 
         # Convert to bytes
@@ -39,7 +38,6 @@ def input_pdf_setup(uploaded_file):
         raise FileNotFoundError("No file uploaded")
 
 ## Streamlit App
-
 st.set_page_config(page_title="ATS Resume EXpert")
 st.header("ATS Tracking System")
 input_text=st.text_area("Job Description: ",key="input")
@@ -48,7 +46,6 @@ uploaded_file=st.file_uploader("Upload your resume(PDF)...",type=["pdf"])
 
 if uploaded_file is not None:
     st.write("PDF Uploaded Successfully")
-
 
 submit1 = st.button("Tell Me About the Resume")
 
@@ -85,12 +82,3 @@ elif submit3:
         st.write(response)
     else:
         st.write("Please uplaod the resume")
-
-
-
-   
-
-
-
-
-
