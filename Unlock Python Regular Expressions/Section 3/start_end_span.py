@@ -12,4 +12,17 @@ print(result.group(1))
 print(result.group(1, 2))
 # index, 19 February
 
-# ALWAYS USE .search() WITH GROUPS
+print(result.start(1))
+# 19
+
+print(string.index("index"))
+# 19
+
+print(result.end(1))
+# 24
+
+print(result.span(1))
+# (19, 24)
+
+print(result.span(2))
+# (273, 284)
