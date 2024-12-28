@@ -2,7 +2,8 @@ string = "The Euro STOXX 600 index, which tracks all stock markets across Europe
 
 import re
 
-result = re.match(r"[a-zA-Z1-9][a-zA-Z0-9]{2}", string) # Starts matching from the index 0 , so if i use r"[a-zA-Z1-9][a-zA-Z0-9]{3}, ill get None
+print(len(string)) # 285
+result = re.fullmatch(r".{285}", string)
 
 print(result)
-# <re.Match object; span=(0, 3), match='The'>
+# <re.Match object; span=(0, 285), match='The Euro STOXX 600 index, which tracks all stock >
