@@ -4,7 +4,7 @@ string = "The Euro STOXX 600 index, which tracks all stock markets across Europe
 
 result = re.findall(r"the", string)
 print(result)
-result = re.findall(r"the", string, re.I) 
+result = re.findall(r"the", string, re.I)
 # re.I -> Ignore Case Flag, Considers `uppercase` and `lowercase`
 print(result)
 
@@ -14,7 +14,7 @@ result = re.search(r".+", string2)
 print(result)
 # <re.Match object; span=(0, 5), match='Hello'>
 
-result = re.search(r".+", string2, re.S) # Includes New Line Characters
+result = re.search(r".+", string2, re.S)  # Includes New Line Characters
 print(result)
 # <re.Match object; span=(0, 12), match='Hello\nPython'>
 
