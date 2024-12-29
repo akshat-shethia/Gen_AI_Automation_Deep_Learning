@@ -7,7 +7,7 @@ string = f.read()
 # result = re.findall(r".+/2020 (?:12|[1-3]):\d\d:\d\d PM (.+?) \d+", string)
 
 # Write a pattern on line 7, in between the double quotes, that will match the Source substring of all the log entries that were generated after 12 PM and before 4 PM, regardless of the severity level and the date.
-Note! Please find the solution below, in this section.
-result = re.findall(r".+/2020 (?:12|[1-3]):[0-9]{2}:[0-9]{2} PM (.+) [0-9]{2}", string)
+result = re.findall(
+    r".+/2020 (?:12|[1-3]):[0-9]{2}:[0-9]{2} PM (.+) [0-9]{2}", string)
 
 print(result)
