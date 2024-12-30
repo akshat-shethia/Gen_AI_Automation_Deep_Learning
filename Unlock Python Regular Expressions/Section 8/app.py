@@ -1,3 +1,4 @@
+import re
 import openpyxl
 
 workbook = openpyxl.load_workbook(r"Section 8\Employees.xlsx")
@@ -64,3 +65,25 @@ print(employees)
 # 18;Charlie;Smith;Marketing;9884567907;18th Address, Las Vegas;49000
 # 19;Wayne;Andrews;Sales;3324567908;19th Address, LA;52000
 # 20;Adrian;Harrison;IT;1234567909;20th Address, LA;21160
+
+
+s1 = re.findall(r"\d{1,};.+?;(.+?);.+;2[4-9]\d{3}", employees)
+s2 = re.findall(r"\d{1,};.+?;(.{1,5});(?:IT|Marketing);.+;\d{5}", employees)
+s3 = re.findall(r"\d{1,};([P-Z].+?);.+;[2468]\d{8}[13579];.+;\d{5}", employees)
+s4 = re.findall(r"\d{1,};(.+?);(.+?);Sales;(.+?);.+New York;\d{5}", employees)
+s5 = re.findall(r"\d{1,};.+?;(.+?);.+?;.+?;.+, (?!Miami)", employees)
+
+print(s1)
+# ['Phillip', 'Sullivan', 'Johnson']
+
+print(s2)
+# ['Wood', 'Drake', 'Meyer', 'Smith']
+
+print(s3)
+# ['Ronnie']
+
+print(s4)
+# [('Ronnie', 'Moore', '8974567897'), ('Ron', 'Johnson', '1664567904')]
+
+print(s5)
+# ['Darren', 'Wood', 'Wilson', 'Smith', 'Moore', 'Drake', 'Barker', 'Baker', 'Williams', 'Wood', 'Phills', 'Johnson', 'Stanley', 'Meyer', 'Smith', 'Andrews', 'Harrison']
